@@ -53,33 +53,97 @@
 #python
     #true, if condition else default val
 
-pet_mood = "Hungry!"
-pet_name = "Rose"
+# pet_mood = "Hungry!"
+# pet_name = "Rose"
 
-print("Rose needs to be fed.") if pet_mood == "Hungry!" else print("Rose is all good.")
+# print("Rose needs to be fed.") if pet_mood == "Hungry!" else print("Rose is all good.")
 
 # 3. ✅ Create a function (say_hello) that returns the string "Hello, world!"
     # Test invocation of "say_hello" in ipdb using "say_hello()"
     # say_hello() => "Hello, world!"
+
+#python => def (define)
+#JS => function
+
+
+
+# import ipdb
+
+# def say_hello():
+#     print("Hello, world!")
+#     return "Hello, world!"
+
+# say_hello()
+
+
+# JS
+    #can invoke function containing params without argument 
+
+# python 
+    #cannot invoke function containing params without argument 
+    #unless we've supplied a default argument
+
+#default argument
+# def say_hello(param = "hello"):
+#     print(param)
+#     return "Hello World!"
+
+# say_hello()
+
+
 
 # 4. ✅ Create a function (pet_greeting) that will return a string with interpolated pet's name
     # Test invocation of "pet_greeting" in ipdb using "pet_greeting()"
     # pet_greeting("Rose") => "Rose says hello!"
     # pet_greeting("Spot") => "Spot says hello!"
 
+# def pet_greeting(name):
+#     return f"{name} says hello!"
+
+# print(pet_greeting("Rose"))
+# print(pet_greeting("Spot"))
+
 # 5. ✅ Move conditional logic from Deliverable 1 into a function (pet_status) so that we may use it with different pets / moods
     # Test invocation of "pet_status" in ipdb using "pet_status(pet_name, pet_mood)"
     # pet_status("Rose", "Hungry!") => "Rose needs to be fed."
-    # pet_greeting("Spot", "Rowdy!") => "Spot needs a walk."
-    # pet_greeting("Bud", "Relaxed") => "Bud is all good."
+    # pet_status("Spot", "Rowdy!") => "Spot needs a walk."
+    # pet_status("Bud", "Relaxed") => "Bud is all good."
     
     # Take a moment to note that "pet_name" and "pet_mood" parameters are within Local Scope and take priority over "pet_name" and "pet_mood"
     # in Global Scope.
+# import ipdb
+# def pet_status(name, mood):
+#     if mood == "Hungry!":
+#         #ipdb.set_trace()
+#         return f"{name} needs to be fed."  
+#     elif mood == "Rowdy!":
+#         return f"{name} needs a walk."
+#     else:
+#         return f"{name} is all good."
+
+# print(pet_status("Rose", "Hungry!"))
+# print(pet_status("Spot", "Rowdy!"))
+# print(pet_status("Bud", "Relaxed"))
+         
 
 # 6. ✅ Create a function (pet_birthday) that will increment a pet's age up by 1. Use try / except to handle errors. 
-    # If our function is given an incorrect datatype, it should handle the TypeError exception and alert the user
+    # If our function is given an incorrect datatype, it should handle the TypeError exception and alert the user.
     # pet_birthday(10) => "Happy Birthday! Your pet is now 11."
     # pet_birthday("oops") => "Type Error Occurred"
+
+def pet_birthday(age):
+
+    #attempt to execute code
+    try: 
+        return f"Happy Birthday! Your pet is now {age+1}"
+    
+    #if an error of a particular type occurs,
+    #execute some other bit of code
+
+    except TypeError:
+        return "Type Error Occurred"
+
+print(pet_birthday(14))
 
     # Note => To view more common Python exceptions, visit https://docs.python.org/3/library/exceptions.html
 
